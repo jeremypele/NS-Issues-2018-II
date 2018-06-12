@@ -1,13 +1,17 @@
-
-<ActionBar title="My App" class="action-bar" flat="true">
+<ActionBar title="My App" class="action-bar" flat="true"  style="background-color: red; color: white">
 </ActionBar>
-
 
 <StackLayout class="page">
     <ListView [items]="items" class="list-group">
         <ng-template let-item="item">
+
+            <!-- With transition => Bug -->
             <Label [nsRouterLink]="['/item', item.id]" pageTransition="slide" [text]="item.name"
                 class="list-group-item"></Label>
+
+            <!-- Without transition => No bugs -->
+            <!-- <Label [nsRouterLink]="['/item', item.id]" [text]="item.name"
+                class="list-group-item"></Label> -->
         </ng-template>
     </ListView>
 </StackLayout>
